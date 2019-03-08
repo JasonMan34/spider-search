@@ -1,7 +1,7 @@
 {
 	"name": "Spider-search",
 	"version": "1.0",
-	"description": "A simple search engine for sites with no search engine",
+	"description": "Uses Google to search for a query in a website",
 	"permissions": [
 		"storage",
 		"activeTab",

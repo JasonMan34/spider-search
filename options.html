@@ -1,24 +1,31 @@
-<!-- Made this entire file alone -->
-
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>WTFII Options</title>
+		<title>SpiderSearch Options</title>
 		<link rel="stylesheet" type="text/css" href="bulma.min.css">
 	</head>
 	<body>
 		<div style="margin:10px">
 			<div class="container">
 				<label class="checkbox">
-					<input type="checkbox" id="client-webcrawl">
-					Use client for web-crawling (Not recommended)
+					<input type="checkbox" id="use-google">
+					Use google to improve search performance
 				</label>
+
+				<div class="slidecontainer container">
+					<br>
+					<p>Non-google search performance:</p>
+					<div style="margin-bottom:7px"><span>Fast&nbsp;</span>
+					<input type="range" min="1200" max="5000" value="50" class="slider" id="max-timeout">
+					<span>&nbsp;Accurate</span></div>
+				</div>
 				
 				<br />
 				<div id="status"></div>
-				<button class="buton is-primary" id="save">Save</button>
+				<button class="buton is-primary" id="save_options">Save</button>
 			</div>
 		</div>
-	<script src="options.js"></script>
+		
+		<script src="options.js"></script>
 	</body>
 </html>
