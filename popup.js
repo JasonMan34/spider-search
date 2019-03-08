@@ -107,7 +107,7 @@ function searchQuery(query) {
 	let x = setTimeout(() => {
 		clearTimeout(x);
 		
-		if (!crawlIsDone()) {
+		if (!crawlIsDone() && $("#wtfii-button").hasClass("is-loading")) {
 			$("#results").html("<div style=\"margin-top:10px\"><span>This is taking too long. Are you sure you are connected to the internet?</span></div>");
 		}
 	}, 4000)

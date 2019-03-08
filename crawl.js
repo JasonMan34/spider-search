@@ -68,6 +68,7 @@ function insertHits(obj, query) {
 		error: (e) => {
 			$("#wtfii-button").removeClass("is-loading");
 			$("#results").html("Could not perform spider-search");
+			console.log(e);
 		},
 	});
 }
@@ -103,6 +104,7 @@ function crawlAjax(searchURL, query, baseURL, output) {
 		error: (e) => {
 			$("#wtfii-button").removeClass("is-loading");
 			$("#results").html("Google refused your connection or you don't have an internet connection");
+			console.log(e);
 		},
 	});
 }
