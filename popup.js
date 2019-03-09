@@ -11,8 +11,8 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 function searchQuery(query) {
 	queryResults = [];
 
-	$("#wtfii-button").addClass("is-loading");
-
+	$("#wtfii-button").off("click");
+	
 	crawl(activeTabURL, query, queryResults);
 
 	let t = setInterval(() => {
@@ -99,6 +99,9 @@ function searchQuery(query) {
 				}
 		
 				$("#wtfii-button").removeClass("is-loading");
+				setTimeout(() => {
+					$("#wtfii-button").on("click", spiderSearchButtonClick);
+				}, 300)
 				initSelector();	
 			}
 		}
@@ -141,19 +144,22 @@ function initSelector() {
 	}
 }
 
-$("#wtfii-button").on("click", () => {
+const spiderSearchButtonClick = () => {
+	$("#wtfii-button").addClass("is-loading");
 	let query = $("#wtfii-input").val().toLowerCase();
 	searchQuery(query);
-});
+};
+
+$("#wtfii-button").on("click", spiderSearchButtonClick);
 
 $("#wtfii-input").on("focus", () => {
     spiderKeyDown = null;
 });
 
 $("#wtfii-input").keyup((event) => {
-    if (event.keyCode == 13) { // 13 = Return keycode
-        $("#wtfii-button").click();
-    }
+	if (event.keyCode == 13) { // 13 = Return keycode
+		$("#wtfii-button").click();
+	}
 });
 
 $(document).keydown(() => {
